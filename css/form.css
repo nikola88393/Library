@@ -1,0 +1,24 @@
+.formWrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    /* change to display flex to show the form */
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(46, 46, 46, 0.7);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+    padding: 20px;
+    gap: 20px;
+}
+
+.readContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
