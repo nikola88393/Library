@@ -73,8 +73,16 @@ function showForm() {
 
 function hIdeForm() {
     let form = document.querySelector(".formWrapper");
-    let formInputs = document.querySelectorAll("form input");
-    formInputs.value = null;
+    let titleInput = document.getElementById('title');
+    titleInput.value = ""
+    let textInput = document.getElementById('description');
+    textInput.value = "";
+    let pagesInput = document.getElementById('pages');
+    pagesInput.value = "";
+    let radioInputYes = document.getElementById("yes");
+    let radioInputNo = document.getElementById("no");
+    radioInputNo.checked = false;
+    radioInputYes.checked = false;
 
     form.style.display = "none";
 }
