@@ -36,27 +36,46 @@ function addNewBook() {
             bookContainer.setAttribute('class', 'bookCard');
 
             let Title = document.createElement('h3');
-            Title.innerHTML = element.title;
+            Title.innerHTML = `Title: ${element.title}`;
 
             let Description = document.createElement('p');
-            Description.innerHTML = element.description;
+            Description.innerHTML = `Description:\n${element.description}`;
 
             let Pages = document.createElement('p');
-            Pages.innerHTML = `Book lenght: ${element.pages}`
+            Pages.innerHTML = `Book lenght: ${element.pages} pages.`
 
-            let Status = document.createElement("p");
-            Status.innerHTML = element.status;
+            // let Status = document.createElement("p");
+            // Status.innerHTML = element.status;
+
+            let buttonContainer = document.createElement("div");
+            buttonContainer.setAttribute("class", "formButtons");
+
+            let Read = document.createElement('button');
+            if (element.status === 'Read') {
+                Read.style.backgroundColor = 'green'
+                Read.innerHTML = "Read";
+            }
+            else {
+                Read.style.backgroundColor = 'red'
+                Read.innerHTML = "Yet to be read";
+            }
+            Read.setAttribute("class", "readCardButton");
+            Read.setAttribute("id", `status${element.Id}`)
+            Read.setAttribute("onclick", `readStatus('status${element.Id}')`);
 
             let Delete = document.createElement("button");
             Delete.innerHTML = "Delete Book";
-            Delete.setAttribute("Id", element.Id);
+            Delete.setAttribute("class", "deleteCardButton");
             Delete.setAttribute("onclick", `deleteCard("${element.Id}")`);
+
+            buttonContainer.appendChild(Read);
+            buttonContainer.appendChild(Delete);
 
             bookContainer.appendChild(Title);
             bookContainer.appendChild(Description);
             bookContainer.appendChild(Pages);
-            bookContainer.appendChild(Status);
-            bookContainer.appendChild(Delete);
+            // bookContainer.appendChild(Status);
+            bookContainer.appendChild(buttonContainer);
 
             container.appendChild(bookContainer)
         }
@@ -64,7 +83,17 @@ function addNewBook() {
 
     hIdeForm();
 }
-
+function readStatus(id) {
+    let button = document.getElementById(id);
+    if (button.style.backgroundColor === 'red') {
+        button.style.backgroundColor = 'green';
+        button.innerHTML = 'Read';
+    }
+    else {
+        button.style.backgroundColor = 'red';
+        button.innerHTML = 'Yet to be read';
+    }
+}
 function showForm() {
     let form = document.querySelector(".formWrapper");
 
@@ -103,3 +132,24 @@ function deleteCard(Id) {
 
 let submitButton = document.getElementById("submitButton");
 submitButton.addEventListener("click", showForm);
+
+//for testing purposes
+function exampleCards() {
+    let i = 1;
+    for (let j = 0; j < 4; j++) {
+        let title = i;
+        let description = i;
+        let pages = i;
+        let status = i;
+        let ID = `book${Id}`;
+        Id++;
+
+        let book = new Book(title, description, pages, status, ID);
+        library.push(book);
+
+        addNewBook();
+        i++
+    }
+}
+
+exampleCards();
