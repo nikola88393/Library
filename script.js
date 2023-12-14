@@ -138,7 +138,7 @@ function exampleCards() {
     let i = 1;
     for (let j = 0; j < 4; j++) {
         let title = i;
-        let description = i;
+        let description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab aliquid sequi totam officiis, nulla asperiores vel reprehenderit possimus! Maxime molestias mollitia illo qui ipsum delectus eveniet earum eaque placeat sunt.';
         let pages = i;
         let status = i;
         let ID = `book${Id}`;

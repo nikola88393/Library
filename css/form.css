@@ -39,6 +39,17 @@ form button {
     justify-content: space-evenly;
 }
 
+#Cancel,
+#addBook {
+    width: 120px;
+    height: 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--blue);
+    color: var(--boxBackground);
+    font-weight: 700;
+}
+
 .deleteCardButton,
 #submitButton,
 .readCardButton {
