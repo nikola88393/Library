@@ -1,12 +1,14 @@
 let Id = 1;
 let library = [];
 
-function Book(title, description, pages, status, Id) {
-    this.title = title;
-    this.description = description;
-    this.pages = pages;
-    this.status = status;
-    this.Id = Id;
+class Book {
+    constructor(title, description, pages, status, Id) {
+        this.title = title;
+        this.description = description;
+        this.pages = pages;
+        this.status = status;
+        this.Id = Id;
+    }
 }
 
 let form = document.getElementsByTagName("form")[0];
